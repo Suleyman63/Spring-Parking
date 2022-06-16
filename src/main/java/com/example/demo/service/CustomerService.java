@@ -13,9 +13,13 @@ public interface CustomerService {
 
     Customer getById(Long id);
 
-    Customer editCustomer(Long id,Customer customer);
+    Customer editCustomer(Long id, Customer customer);
 
     Boolean deleteCustomer(Long id);
+
+    List<Customer> getByPlate(String plate);
+
+    Customer login(Customer customer);
 
 
 }
