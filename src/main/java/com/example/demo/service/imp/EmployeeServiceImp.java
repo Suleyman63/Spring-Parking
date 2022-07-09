@@ -33,7 +33,7 @@ public class EmployeeServiceImp implements EmployeeService {
         if (employee.isPresent()){
             return employee.get();
         }else {
-            throw new RuntimeException("customer not found");
+            throw new RuntimeException("employee not found");
         }
     }
 
