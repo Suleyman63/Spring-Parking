@@ -22,7 +22,8 @@ public class DBService {
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
 
             list = br.lines().skip(1).
-                    map(itemDB).collect(Collectors.toList());
+                    map(itemDB).
+                    collect(Collectors.toList());
 
         } catch (IOException e) {
                 e.printStackTrace();
@@ -35,10 +36,10 @@ public class DBService {
 
         String[] str = line.split(";");
 
-        // hocam burdaki condition nin dogru olup olmadigina bakabilir misiniz size zahmet
-        if(str.length <= 0)
+        if(str.length < 4) {
             throw new BetriebsstelleNotFoundException(line);
-
-        return new Betriebsstelle(str[2], str[3], str[5], str[1]);
+        }else {
+            return new Betriebsstelle(str[2], str[3], str[5], str[1]);
+        }
     };
 }

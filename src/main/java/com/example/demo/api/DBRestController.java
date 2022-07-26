@@ -4,6 +4,7 @@ package com.example.demo.api;
 import com.example.demo.csv.DBService;
 import com.example.demo.exception.BetriebsstelleNotFoundException;
 import com.example.demo.model.Betriebsstelle;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class DBRestController {
         this.dbService = dbService;
     }
 
-    @GetMapping("/betribsstelle/{code}")
+    @GetMapping(value = "/betribsstelle/{code}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Stream<Betriebsstelle> readCSV(@PathVariable("code") String code) {
 
         List<Betriebsstelle> betriebsstelleList = dbService.readCSV();
