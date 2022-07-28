@@ -2,6 +2,7 @@ package com.example.demo.csv;
 
 import com.example.demo.exception.BetriebsstelleNotFoundException;
 import com.example.demo.model.Betriebsstelle;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.*;
@@ -15,6 +16,7 @@ public class DBService {
 
     private static final String filePath = "src/main/java/com/example/demo/csv/db.csv";
 
+    @Bean
     public List<Betriebsstelle> readCSV(){
 
         List<Betriebsstelle> list = new ArrayList<>();
